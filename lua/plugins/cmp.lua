@@ -11,10 +11,10 @@ return {
     local cmp = require("cmp")
 
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
+      -- Tab: Confirmar selección o completar/saltar snippet
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
-          cmp.select_next_item()
+          cmp.confirm({ select = true }) -- Confirmar la entrada seleccionada
         elseif vim.snippet.active({ direction = 1 }) then
           vim.schedule(function()
             vim.snippet.jump(1)
@@ -24,10 +24,11 @@ return {
         else
           fallback()
         end
-      end, { "i", "s" }),
+      end, { "i", "s" }), -- 'i' para modo inserción, 's' para modo selección
+      -- Shift-Tab: Seleccionar anterior o saltar snippet hacia atrás
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.select_prev_item()
+          cmp.select_prev_item() -- Seleccionar entrada anterior
         elseif vim.snippet.active({ direction = -1 }) then
           vim.schedule(function()
             vim.snippet.jump(-1)

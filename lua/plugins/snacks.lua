@@ -1,15 +1,14 @@
--- Configura snacks.nvim, asegurando que el explorador muestre archivos ocultos/ignorados
+-- Configuración para snacks.nvim
 return {
-  "snacks.nvim", -- Nombre del plugin gestionado por el extra snacks_explorer
+  "snacks.nvim",
   opts = {
+    -- Configuración específica para el componente explorador
     explorer = {
-      -- Configura las opciones para mostrar archivos ocultos e ignorados en el explorador
-      -- Estas opciones provienen de la configuración base 'files' que 'explorer' hereda
-      hidden = true,
-      ignored = true,
-      -- Puedes añadir/modificar otras opciones de 'explorer' aquí si es necesario
-      -- tree = true, -- (ya es el valor por defecto)
-      -- layout = { preset = "sidebar", preview = false }, -- (ya es el valor por defecto)
+      hidden = true, -- Mostrar archivos ocultos por defecto
+      ignored = true, -- Mostrar archivos ignorados por git por defecto
+      -- Otras opciones del explorador pueden ir aquí si es necesario
     },
+    -- No necesitamos configurar 'picker' explícitamente aquí
+    -- a menos que queramos sobreescribir vim.ui.select
   },
 }
