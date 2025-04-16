@@ -3,3 +3,4 @@
 -- Add any additional options here
 local opt = vim.opt
 opt.wrap = true -- Enable line wrap
+opt.autoread = true -- Automatically reread files when changed outside of Vim
