@@ -37,7 +37,7 @@ return {
       -- Ejemplo: scss = "sass",
     },
     -- Usar glow para previsualizar el contenido Markdown
-    previewer_cmd = "glow",
+    -- previewer_cmd = "glow",
     -- Habilitar ajuste de línea en la ventana flotante
     wrap = true,
     -- Puedes añadir otras opciones de configuración aquí si lo necesitas
