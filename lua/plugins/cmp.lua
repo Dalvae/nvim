@@ -1,6 +1,5 @@
 return {
   "hrsh7th/nvim-cmp",
-  enabled = false, -- Deshabilitado para usar blink-cmp en su lugar
   version = false, -- last release is way too old
   event = "InsertEnter",
   dependencies = {
@@ -22,19 +21,12 @@ return {
     local cmp = require("cmp")
     local defaults = require("cmp.config.default")()
     local auto_select = true
-
-    -- Función auxiliar del código original para la lógica de <Tab>
-    local has_words_before = function()
-      unpack = unpack or table.unpack
-      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-    end
-
     return {
       auto_brackets = {}, -- configure any filetype to auto add brackets
       completion = {
         completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
       },
+
       preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -49,32 +41,9 @@ return {
           cmp.abort()
           fallback()
         end,
-        -- Mapeo personalizado para <Tab> del código original
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.confirm({ select = true }) -- Confirmar la entrada seleccionada
-          elseif vim.snippet.active({ direction = 1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(1)
-            end)
-          elseif has_words_before() then
-            cmp.complete()
-          else
-            fallback() -- Usar fallback (puede ser indentación o tab literal)
-          end
-        end, { "i", "s" }), -- 'i' para modo inserción, 's' para modo snippet/selección
-        -- Mapeo personalizado para <S-Tab> del código original
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item() -- Seleccionar entrada anterior
-          elseif vim.snippet.active({ direction = -1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(-1)
-            end)
-          else
-            fallback() -- Usar fallback (puede ser desindentar)
-          end
-        end, { "i", "s" }),
+        ["<tab>"] = function(fallback)
+          return LazyVim.cmp.map({ "snippet_forward", "ai_accept" }, fallback)()
+        end,
       }),
       sources = cmp.config.sources({
         { name = "lazydev" },
