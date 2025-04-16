@@ -7,7 +7,7 @@ return {
   },
   opts = {
     -- Especificar qué documentaciones instalar por defecto
-    install_docs = {
+    ensure_instaled = {
       "python",
       "lua",
       "vim",
@@ -36,10 +36,15 @@ return {
       -- Puedes añadir más mapeos aquí si es necesario
       -- Ejemplo: scss = "sass",
     },
+    -- Opciones pasadas al picker de Telescope para Devdocs
+    telescope = {
+      -- Desactivar la ventana de previsualización para evitar el error 'to_yaml'
+      previewer = false,
+    },
     -- Usar glow para previsualizar el contenido Markdown
     -- previewer_cmd = "glow",
     -- Habilitar ajuste de línea en la ventana flotante
-    wrap = true,
+    wrap = false,
     -- Puedes añadir otras opciones de configuración aquí si lo necesitas
     -- Consulta la documentación de devdocs.nvim para más detalles
   },

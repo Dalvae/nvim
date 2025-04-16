@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  enabled = false, -- Deshabilitado para usar blink-cmp en su lugar
   version = false, -- last release is way too old
   event = "InsertEnter",
   dependencies = {
