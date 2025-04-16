@@ -13,7 +13,8 @@ return {
   {
     "eldritch-theme/eldritch.nvim",
     opts = {
-      palette = "darker", -- Available options: "default" (standard palette), "darker" (darker variant) , "lighter",
+      palette = "default", -- Available options: "default" (standard palette), "darker" (darker variant) , "lighter",
+      transparent = false, -- Make background opaque
     },
   },
 }
