@@ -9,6 +9,7 @@ return {
   },
   dependencies = {
     "rafamadriz/friendly-snippets",
+    "L3MON4D3/LuaSnip",
     -- add blink.compat to dependencies
     {
       "saghen/blink.compat",

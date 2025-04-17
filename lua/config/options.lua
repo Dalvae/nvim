@@ -6,3 +6,14 @@ opt.wrap = true -- Enable line wrap
 opt.autoread = true -- Automatically reread files when changed outside of Vim
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 opt.relativenumber = false
+opt.scrolloff = 12 -- Mantener 8 líneas por encima/debajo del cursor al desplazarse
+
+-- Añadir borde a las ventanas flotantes de LSP (incluyendo hover K)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded", -- Puedes usar "single", "double", "shadow", etc.
+})
+
+-- Opcional: Añadir borde también a la ventana de signature help (ayuda de firma)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "rounded",
+})
