@@ -23,7 +23,7 @@ return {
   ---@type blink.cmp.Config
   opts = {
     snippets = {
-      expand = function(snippet)
+      expand = function(snippet, _)
         return LazyVim.cmp.expand(snippet)
       end,
     },
@@ -72,7 +72,7 @@ return {
     },
 
     keymap = {
-      preset = "enter",
+      preset = "super-tab",
       ["<C-y>"] = { "select_and_accept" },
     },
   },
