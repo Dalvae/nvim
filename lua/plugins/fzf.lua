@@ -23,7 +23,7 @@ return {
     opts.grep = opts.grep or {}
     opts.grep.rg_opts = "--column --line-number --no-heading --color=always --smart-case" -- Sin --hidden
     opts.grep.hidden = false
-    opts.grep.no_ignore = false
+    opts.grep.no_ignore = false -- Respetar .gitignore por defecto
 
     return opts
   end,
