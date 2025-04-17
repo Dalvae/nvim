@@ -111,10 +111,6 @@
     "branch": "main",
     "commit": "5224467c6a49a6c77b8a8333f4d9af0abc788e10"
   },
-  "noice.nvim": {
-    "branch": "main",
-    "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59"
-  },
   "nui.nvim": {
     "branch": "main",
     "commit": "8d3bce9764e627b62b07424e0df77f680d47ffdb"
