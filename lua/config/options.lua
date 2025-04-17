@@ -4,4 +4,5 @@
 local opt = vim.opt
 opt.wrap = true -- Enable line wrap
 opt.autoread = true -- Automatically reread files when changed outside of Vim
-opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
+vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
+opt.relativenumber = false
