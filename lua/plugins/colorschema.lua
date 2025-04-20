@@ -15,10 +15,10 @@ return {
       palette = "lighter",
       transparent = false,
       ---@param colors ColorScheme
-      on_colors = function(colors)
-        colors.bg = "#121212" -- Negro menos oscuro
-        colors.bg_dark = "#121212"
-      end,
+      -- on_colors = function(colors)
+      --   colors.bg = "#121212" -- Negro menos oscuro
+      --   colors.bg_dark = "#121212"
+      -- end,
       ---@param highlights Highlights
       ---@param colors ColorScheme
       on_highlights = function(highlights, colors)
