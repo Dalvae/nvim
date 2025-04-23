@@ -6,4 +6,4 @@ local map = vim.keymap.set
 local Util = require("lazyvim.util")
 
 -- Abrir documentación flotante con Devdocs para el filetype actual
-map({ "n", "v" }, "<leader>D", "<cmd>DevdocsOpenCurrentFloat<cr>", { desc = "Abrir Devdocs (Float)" })
+map({ "n", "v" }, "<leader>D", "<cmd>DevdocsOpen<cr>", { desc = "Abrir Devdocs (Float)" })
