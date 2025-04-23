@@ -6,7 +6,14 @@ return {
     },
   },
 
-  { "mofiqul/vscode.nvim", lazy = false, priority = 1000 },
+  {
+    "mofiqul/vscode.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = "light",
+    },
+  },
   {
     "eldritch-theme/eldritch.nvim",
     lazy = false,
@@ -22,12 +29,10 @@ return {
       ---@param highlights Highlights
       ---@param colors ColorScheme
       on_highlights = function(highlights, colors)
-        -- Hacer los comentarios más visibles
+        -- Cambiar el color de los comentarios
         highlights.Comment = {
-          fg = colors.gray5, -- Un gris más claro de la paleta
-          -- fg = "#B0B8C0", -- O un color hexadecimal específico si prefieres
-          italic = true, -- Quitar cursiva
-          -- bold = true, -- Opcional: añadir negrita si lo deseas
+          fg = "#D8E0FF", -- Cambia este color al que prefieras
+          italic = true, -- Mantiene los comentarios en cursiva
         }
       end,
     },
