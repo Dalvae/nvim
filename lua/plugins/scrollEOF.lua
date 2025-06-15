@@ -4,6 +4,6 @@ return {
   opts = {
     insert_mode = true,
     -- Deshabilitar en modo normal y visual
-    disabled_modes = { "n", "v", "V", "\22" },
+    disabled_modes = { "n", "v", "V", "t", "\22" },
   },
 }
