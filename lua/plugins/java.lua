@@ -1,6 +1,10 @@
 -- ~/.config/nvim/lua/plugins/java.lua
 return {
-  "nvim-java/nvim-java",
+  -- Deshabilitar nvim-jdtls de LazyVim (conflicta con nvim-java)
+  { "mfussenegger/nvim-jdtls", enabled = false },
+
+  {
+    "nvim-java/nvim-java",
   dependencies = {
     "nvim-java/lua-async-await",
     "nvim-java/nvim-java-core",
@@ -92,4 +96,5 @@ return {
       },
     })
   end,
+  },
 }
